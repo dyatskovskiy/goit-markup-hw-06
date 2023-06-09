@@ -476,6 +476,8 @@ body {
   max-width: 264px;
 }
 
+/* Футер: соцмережі */
+
 .footer-soc-container {
 }
 
@@ -518,6 +520,73 @@ body {
 .footer-soc-icon {
   fill: var(--light-color);
 }
+
+/* Футер: форма підписки */
+.footer-subscribe-container {
+  margin-left: auto;
+}
+
+.footer-subscribe-caption {
+  font-weight: 500;
+  font-size: var(--text-size);
+  line-height: var(--typical-lh);
+  letter-spacing: var(--text-spacing);
+  color: var(--white-color);
+  margin-bottom: 16px;
+}
+
+.footer-form {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.footer-input {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  padding: 8px 16px;
+  width: 264px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--white-color);
+}
+
+.footer-input::placeholder {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--white-color);
+}
+
+.subscribe-btn {
+  color: var(--white-color);
+  background: var(--passive-color);
+  font-weight: 500;
+  font-size: var(--text-size);
+  line-height: var(--typical-lh);
+  letter-spacing: 0.04em;
+  padding: 8px 24px;
+  border: none;
+  border-radius: 4px;
+  transition: var(--bg-transition);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.subscribe-btn:is(:hover, :focus) {
+  background: var(--active-color);
+}
+
+.send-icon {
+  fill: var(--white-color);
+}
+
 /*====================ПОРТФОЛІО====================*/
 
 .projects {
