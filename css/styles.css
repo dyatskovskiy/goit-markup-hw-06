@@ -16,13 +16,16 @@
   --typical-lh: 1.5;
   /* Флекс */
   --typical-gap: 24px;
-  /*Переходи*/
+  /* Переходи */
   --color-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --bg-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --bc-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --visibility-transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --opacity-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --fill-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* Форма модалки */
+  --modal-input-border: 1px solid rgba(46, 47, 66, 0.4);
 }
 /* ------------Cкидання стилів------------ */
 p,
@@ -730,11 +733,10 @@ body {
 }
 
 .modal-btn-close {
-  position: absolute;
-  top: 24px;
-  right: 24px;
   width: 24px;
   height: 24px;
+  margin-left: auto;
+  margin-bottom: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -756,4 +758,161 @@ body {
 
 .modal-btn-close:is(:hover, :focus) .close-btn-icon {
   fill: var(--white-color);
+}
+
+/* Форма модального вікна*/
+.modal-caption {
+  font-weight: 500;
+  font-size: var(--text-size);
+  line-height: var(--typical-lh);
+  text-align: center;
+  letter-spacing: var(--text-spacing);
+  color: var(--dark-color);
+  margin-bottom: 16px;
+}
+
+.modal-field {
+  margin-bottom: 8px;
+}
+
+.modal-field:last-of-type {
+  margin-bottom: 16px;
+}
+
+.input-label {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--subtle-text-color);
+  margin-bottom: 4px;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.modal-input {
+  outline: none;
+  width: 100%;
+  border: var(--modal-input-border);
+  border-radius: 4px;
+  padding: 11px 2px 11px 38px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--dark-color);
+  transition: var(--bc-transition);
+}
+
+.modal-input:focus {
+  border-color: var(--passive-color);
+}
+
+.modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  transition: var(--fill-transition);
+}
+
+.modal-input:focus + .modal-icon {
+  fill: var(--passive-color);
+}
+
+.modal-comment {
+  outline: none;
+  width: 100%;
+  height: 120px;
+  resize: none;
+
+  border: var(--modal-input-border);
+  border-radius: 4px;
+  padding-top: 8px;
+  padding-left: 16px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--dark-color);
+}
+
+.modal-comment:focus {
+  border-color: var(--passive-color);
+}
+
+.modal-comment::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+}
+
+.checkbox-field {
+  margin-bottom: 24px;
+}
+
+.check:checked + .check-label .custom-checkbox {
+  background: var(--active-color);
+  border: 1px solid #404bbf;
+  fill: var(--light-color);
+}
+
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--subtle-text-color);
+}
+
+.custom-checkbox {
+  width: 16px;
+  height: 16px;
+  border: var(--modal-input-border);
+  border-radius: 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: transparent;
+}
+
+.check-icon {
+}
+
+.privacy-link {
+  line-height: 1.33;
+  color: var(--passive-color);
+}
+
+/* Кнопка форми */
+.modal-form-btn {
+  display: block;
+  padding: 16px 32px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 169px;
+  height: 56px;
+
+  font-weight: 500;
+  font-size: var(--text-size);
+  line-height: var(--typical-lh);
+  letter-spacing: var(--text-spacing);
+  color: var(--white-color);
+
+  border: none;
+  border-radius: 4px;
+  background: var(--passive-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: var(--bg-transition);
+}
+
+.modal-form-btn:is(:hover, :focus) {
+  background: var(--active-color);
 }
