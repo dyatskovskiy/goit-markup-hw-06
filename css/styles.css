@@ -20,6 +20,7 @@
   --color-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --bg-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --bc-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --border-transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --visibility-transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --opacity-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -543,21 +544,26 @@ body {
   justify-content: center;
   gap: 24px;
 }
+
+.footer-label {
+}
+
 .footer-input {
   background-color: transparent;
   border: 1px solid #ffffff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
-  padding: 8px 16px;
+  padding-left: 16px;
   width: 264px;
-  font-weight: 400;
+  height: 40px;
+
   font-size: 12px;
-  line-height: 2;
+  line-height: 1.5;
   letter-spacing: 0.04em;
   color: var(--white-color);
 }
 
 .footer-input::placeholder {
-  font-weight: 400;
   font-size: 12px;
   line-height: 2;
   letter-spacing: 0.04em;
@@ -565,21 +571,23 @@ body {
 }
 
 .subscribe-btn {
-  color: var(--white-color);
-  background: var(--passive-color);
   font-weight: 500;
   font-size: var(--text-size);
   line-height: var(--typical-lh);
   letter-spacing: 0.04em;
+
+  min-width: 165px;
+  height: 40px;
   padding: 8px 24px;
   border: none;
   border-radius: 4px;
+  color: var(--white-color);
+  background: var(--passive-color);
   transition: var(--bg-transition);
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
 }
 
 .subscribe-btn:is(:hover, :focus) {
@@ -588,6 +596,7 @@ body {
 
 .send-icon {
   fill: var(--white-color);
+  margin-left: 16px;
 }
 
 /*====================ПОРТФОЛІО====================*/
@@ -725,7 +734,7 @@ body {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   background-color: var(--modal-bg);
-  padding: 24px;
+  padding: 72px 24px 24px;
 }
 
 .backdrop.is-hidden .modal {
@@ -733,10 +742,12 @@ body {
 }
 
 .modal-btn-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
   width: 24px;
   height: 24px;
-  margin-left: auto;
-  margin-bottom: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -775,12 +786,12 @@ body {
   margin-bottom: 8px;
 }
 
-.modal-field:last-of-type {
+.modal-text-area {
   margin-bottom: 16px;
 }
 
 .input-label {
-  display: inline-block;
+  display: block;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
@@ -793,8 +804,10 @@ body {
 }
 
 .modal-input {
-  outline: none;
+  outline: transparent;
+  background-color: transparent;
   width: 100%;
+  height: 40px;
   border: var(--modal-input-border);
   border-radius: 4px;
   padding: 11px 2px 11px 38px;
@@ -823,20 +836,21 @@ body {
 }
 
 .modal-comment {
-  outline: none;
+  outline: transparent;
+  background: transparent;
   width: 100%;
   height: 120px;
   resize: none;
 
   border: var(--modal-input-border);
   border-radius: 4px;
-  padding-top: 8px;
-  padding-left: 16px;
+  padding: 8px 16px;
 
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
-  color: var(--dark-color);
+  color: rgba(46, 47, 66, 0.4);
+  transition: var(--bc-transition);
 }
 
 .modal-comment:focus {
@@ -856,7 +870,7 @@ body {
 
 .check:checked + .check-label .custom-checkbox {
   background: var(--active-color);
-  border: 1px solid #404bbf;
+  border: none;
   fill: var(--light-color);
 }
 
@@ -877,10 +891,12 @@ body {
   border: var(--modal-input-border);
   border-radius: 2px;
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   fill: transparent;
+  transition: var(--bg-transition), var(--border-transition),
+    var(--fill-transition);
 }
 
 .check-icon {
@@ -894,16 +910,16 @@ body {
 /* Кнопка форми */
 .modal-form-btn {
   display: block;
+  min-width: 169px;
+  height: 56px;
   padding: 16px 32px;
   margin-left: auto;
   margin-right: auto;
-  width: 169px;
-  height: 56px;
 
   font-weight: 500;
   font-size: var(--text-size);
   line-height: var(--typical-lh);
-  letter-spacing: var(--text-spacing);
+  letter-spacing: 0.04em;
   color: var(--white-color);
 
   border: none;
